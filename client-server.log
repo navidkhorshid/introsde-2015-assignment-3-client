@@ -1,0 +1,115 @@
+WSDL Url: 
+http://quiet-eyrie-9945.herokuapp.com/ws/people?wsdl
+
+#########################################################################################################################
+
+Method #1: readPersonList(): 
+ID | FirstName    | LastName | BirthDate  | MeasureId | Date       | Time      | Type | Value  | DataType | 
+-- | ---------    | -------- | ---------  | --------- | ----       | ----      | ---- | -----  | -------- | 
+1  | Bot_ccb02406 | Chan     | 1979-08-31 | 1         | 2012-04-11 | 22:30:00Z | 83   | weight | double   | 
+   |              |          |            | 2         | 2012-04-10 | 23:12:00Z | 175  | height | double   | 
+2  | Chuck        | Norris   | 1978-09-01 | 3         | 2012-05-19 | 09:42:00Z | 75   | weight | double   | 
+   |              |          |            | 4         | 2012-06-20 | 19:35:00Z | 180  | height | double   | 
+3  | Pappo        | Pippo    | 1978-09-01 | 8         | 2014-04-14 | 08:37:00Z | 100  | weight | double   | 
+   |              |          |            | 9         | 2014-04-13 | 22:30:00Z | 190  | height | double   | 
+4  | test         | Palleto  | 1979-12-11 | 6         | 2013-03-12 | 20:41:00Z | 79   | weight | double   | 
+
+
+#########################################################################################################################
+
+Method #2: readPerson(Long id = 1): 
+ID | FirstName    | LastName | BirthDate  | MeasureId | Date       | Time      | Type | Value  | DataType | 
+-- | ---------    | -------- | ---------  | --------- | ----       | ----      | ---- | -----  | -------- | 
+1  | Bot_ccb02406 | Chan     | 1979-08-31 | 1         | 2012-04-11 | 22:30:00Z | 83   | weight | double   | 
+   |              |          |            | 2         | 2012-04-10 | 23:12:00Z | 175  | height | double   | 
+
+
+#########################################################################################################################
+
+Method #3: updatePerson(Person p): Person with ID = 1
+Method #2: readPerson(Long id = 1): 
+ID | FirstName    | LastName | BirthDate  | MeasureId | Date       | Time      | Type | Value  | DataType | 
+-- | ---------    | -------- | ---------  | --------- | ----       | ----      | ---- | -----  | -------- | 
+1  | Bot_10609c8c | Chan     | 1979-08-31 | 1         | 2012-04-11 | 22:30:00Z | 83   | weight | double   | 
+   |              |          |            | 2         | 2012-04-10 | 23:12:00Z | 175  | height | double   | 
+
+
+#########################################################################################################################
+
+Method #4: createPerson(Person p): 
+Newly created Person: 
+ID | FirstName | LastName      | BirthDate  | MeasureId | Date       | Time      | Type | Value  | DataType | 
+-- | --------- | --------      | ---------  | --------- | ----       | ----      | ---- | -----  | -------- | 
+6  | Navid98   | Shamsizadeh98 | 1990-03-02 | 13        | 2015-12-07 | 22:42:02Z | 64   | weight | double   | 
+   |           |               |            | 14        | 2015-12-07 | 22:42:02Z | 180  | height | double   | 
+
+
+#########################################################################################################################
+
+Method #5: deletePerson(Long id = 6): 
+Method #1: readPersonList(): 
+ID | FirstName    | LastName | BirthDate  | MeasureId | Date       | Time      | Type | Value  | DataType | 
+-- | ---------    | -------- | ---------  | --------- | ----       | ----      | ---- | -----  | -------- | 
+1  | Bot_10609c8c | Chan     | 1979-08-31 | 1         | 2012-04-11 | 22:30:00Z | 83   | weight | double   | 
+   |              |          |            | 2         | 2012-04-10 | 23:12:00Z | 175  | height | double   | 
+2  | Chuck        | Norris   | 1978-09-01 | 3         | 2012-05-19 | 09:42:00Z | 75   | weight | double   | 
+   |              |          |            | 4         | 2012-06-20 | 19:35:00Z | 180  | height | double   | 
+3  | Pappo        | Pippo    | 1978-09-01 | 8         | 2014-04-14 | 08:37:00Z | 100  | weight | double   | 
+   |              |          |            | 9         | 2014-04-13 | 22:30:00Z | 190  | height | double   | 
+4  | test         | Palleto  | 1979-12-11 | 6         | 2013-03-12 | 20:41:00Z | 79   | weight | double   | 
+
+
+#########################################################################################################################
+
+Method #6: readPersonHistory(Long id = 3, String measureType = "weight"): 
+MeasureId | Date       | Time      | Type   | Value | DataType | 
+--------- | ----       | ----      | ----   | ----- | -------- | 
+7         | 2013-03-22 | 08:21:00Z | weight | 95    | double   | 
+12        | 2011-07-13 | 19:05:46Z | weight | 66    | double   | 
+
+
+#########################################################################################################################
+
+Method #7: readMeasureTypes(): 
+ID | Measure Type   | 
+-- | ------------   | 
+1  | weight         | 
+2  | height         | 
+3  | steps          | 
+4  | blood pressure | 
+5  | heart rate     | 
+6  | bmi            | 
+
+
+#########################################################################################################################
+
+Method #8: readPersonMeasure(Long id = 3, String measureType = "weight", Long mid = 7): 
+MeasureId | Date       | Time      | Type   | Value | DataType | 
+--------- | ----       | ----      | ----   | ----- | -------- | 
+7         | 2013-03-22 | 08:21:00Z | weight | 95    | double   | 
+
+
+#########################################################################################################################
+
+Method #9: savePersonMeasure(Long id = 3, Measure m = %random_measure%): 
+Method #6: readPersonHistory(Long id = 3, String measureType = "weight"): 
+MeasureId | Date       | Time      | Type   | Value | DataType | 
+--------- | ----       | ----      | ----   | ----- | -------- | 
+7         | 2013-03-22 | 08:21:00Z | weight | 95    | double   | 
+12        | 2011-07-13 | 19:05:46Z | weight | 66    | double   | 
+15        | 2011-10-10 | 02:27:21Z | weight | 76    | double   | 
+
+
+#########################################################################################################################
+
+Method #10: updatePersonMeasure(Long id = 3, Measure m = %Measure with Mid = 15 AND Random Value, Date%): 
+Method #6: readPersonHistory(Long id, String measureType): 
+MeasureId | Date       | Time      | Type   | Value | DataType | 
+--------- | ----       | ----      | ----   | ----- | -------- | 
+7         | 2013-03-22 | 08:21:00Z | weight | 95    | double   | 
+8         | 2014-04-14 | 08:37:00Z | weight | 100   | double   | 
+12        | 2011-07-13 | 19:05:46Z | weight | 66    | double   | 
+
+
+#########################################################################################################################
+
